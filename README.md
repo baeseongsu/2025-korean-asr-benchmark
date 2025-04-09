@@ -35,8 +35,3 @@ A personal benchmarking tool for ASR models across multilingual datasets.
 ```bash
 python benchmarks/run_benchmark.py --normalize --verbose
 ```
-
----
-
-Let me know if you want this in Korean too or if you’d like a badge-style header!
-python benchmarks/run_benchmark_v3.py
