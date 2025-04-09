@@ -18,6 +18,7 @@ A personal benchmarking tool for ASR models across multilingual datasets.
 - `openai/whisper-large-v3`
 - `openai/whisper-large-v3-turbo`
 - `ghost613/whisper-large-v3-turbo-korean`
+- `seongsubae/openai-whisper-large-v3-turbo-ko-TEST` *(experimental)*
 - `Qwen/Qwen2.5-Omni-7B` *(requires custom Transformers build)*
 
 ---
