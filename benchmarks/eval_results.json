@@ -38,5 +38,45 @@
     "WER": 0.2985996084926969,
     "CER": 0.09215599051008304,
     "time_sec": 804.3659312725067
+  },
+  "e906b6a6cdfc6a6dd9dd5eba4334f175": {
+    "model": "seongsubae/openai-whisper-large-v3-turbo-ko-TEST",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.04728203583797621,
+    "CER": 0.01774497487437186,
+    "time_sec": 214.8198220729828
+  },
+  "dc4fff03abf78535eaec9333cd9c1406": {
+    "model": "Qwen/Qwen2.5-Omni-7B",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.2918235205541334,
+    "CER": 0.14529679648241206,
+    "time_sec": 829.3095288276672
+  },
+  "e43667b1bcc434cc557beeb8b034824b": {
+    "model": "ghost613/whisper-large-v3-turbo-korean",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.05706971841590122,
+    "CER": 0.023162688442211057,
+    "time_sec": 312.2266173362732
+  },
+  "3c9451aa5e531f1854ad3f62c5c111e9": {
+    "model": "openai/whisper-large-v3-turbo",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.26095467550067764,
+    "CER": 0.07074434673366835,
+    "time_sec": 216.2459864616394
+  },
+  "72822d71af0d804184e91db4456c6bdc": {
+    "model": "openai/whisper-large-v3",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.36470411082668275,
+    "CER": 0.19543027638190955,
+    "time_sec": 266.33340072631836
   }
 }

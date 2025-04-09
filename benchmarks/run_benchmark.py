@@ -399,6 +399,7 @@ def main():
         "ghost613/whisper-large-v3-turbo-korean": {"supported_langs": ["ko"], "type": "whisper"},
         "openai/whisper-large-v3-turbo": {"supported_langs": ["ko", "en"], "type": "whisper"},
         "openai/whisper-large-v3": {"supported_langs": ["ko", "en"], "type": "whisper"},
+        "seongsubae/openai-whisper-large-v3-turbo-ko-TEST": {"supported_langs": ["ko"], "type": "whisper"},
     }
 
     logging.info("Loading datasets...")
