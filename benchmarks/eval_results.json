@@ -1,0 +1,42 @@
+{
+  "072bb1de637b24939fa2fb50e032235d": {
+    "model": "Qwen/Qwen2.5-Omni-7B",
+    "dataset": "kresnik_zeroth_korean/ko",
+    "language": "ko",
+    "WER": 0.2985996084926969,
+    "CER": 0.09215599051008304,
+    "time_sec": 805.965888261795
+  },
+  "336906c9bff5c728f42041aebccc2ee6": {
+    "model": "ghost613/whisper-large-v3-turbo-korean",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.05706971841590122,
+    "CER": 0.018534994068801897,
+    "time_sec": 306.58100271224976
+  },
+  "94b0f147991cdebf0d5dc5a5836d6c00": {
+    "model": "openai/whisper-large-v3-turbo",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.22782713446770064,
+    "CER": 0.04357577105575326,
+    "time_sec": 209.5883777141571
+  },
+  "3c22085aa5fbfa3572b8d6443b82f07f": {
+    "model": "openai/whisper-large-v3",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.3077849721427496,
+    "CER": 0.11269276393831554,
+    "time_sec": 262.8909194469452
+  },
+  "4f4eec861d08b8115e02beb30f7e28e9": {
+    "model": "Qwen/Qwen2.5-Omni-7B",
+    "dataset": "Bingsu_zeroth-korean/ko",
+    "language": "ko",
+    "WER": 0.2985996084926969,
+    "CER": 0.09215599051008304,
+    "time_sec": 804.3659312725067
+  }
+}
