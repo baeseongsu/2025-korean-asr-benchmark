@@ -288,11 +288,6 @@ def evaluate_model(
                 logging.error(f"Failed to load WhisperProcessor for {model_name}: {e}")
                 forced_decoder_ids = None
 
-            # For OpenAI Whisper models, do not use forced_decoder_ids to avoid conflicts.
-            # TODO: This might have occurred because I’m using a previous version of Transformers (which I had to downgrade due to Qwen-Omni integration not being fully supported yet).
-            if "openai/whisper" in model_name.lower():
-                forced_decoder_ids = None
-
             try:
                 device_index = device.index if device.type == "cuda" and device.index is not None else (0 if device.type == "cuda" else -1)
                 # Set generation kwargs using forced_decoder_ids if available
@@ -305,9 +300,6 @@ def evaluate_model(
                     generation_config = GenerationConfig.from_pretrained("openai/whisper-large-v3-turbo")
                     gen_kwargs["generation_config"] = generation_config
                     gen_kwargs["max_length"] = 1000
-                    # Remove forced_decoder_ids if it exists, to prevent conflict.
-                    # TODO: This might have occurred because I’m using a previous version of Transformers (which I had to downgrade due to Qwen-Omni integration not being fully supported yet).
-                    gen_kwargs.pop("forced_decoder_ids", None)
 
                 asr_pipeline = pipeline(
                     "automatic-speech-recognition",
@@ -317,9 +309,9 @@ def evaluate_model(
                     generate_kwargs=gen_kwargs,
                 )
 
-                # # Corrected the code to remove generation_config if it exists to prevent conflicts.
-                # if hasattr(asr_pipeline, "generation_config"):
-                #     del asr_pipeline.generation_config
+                asr_pipeline.model.generation_config.input_ids = asr_pipeline.model.generation_config.forced_decoder_ids
+                asr_pipeline.model.generation_config.forced_decoder_ids = None
+
             except Exception as e:
                 logging.error(f"Failed to load pipeline for language {lang}: {e}")
                 continue
@@ -397,8 +389,8 @@ def main():
     model_configs = {
         "Qwen/Qwen2.5-Omni-7B": {"supported_langs": ["en", "zh", "ru", "fr", "ko"], "type": "qwen"},
         "ghost613/whisper-large-v3-turbo-korean": {"supported_langs": ["ko"], "type": "whisper"},
-        # "openai/whisper-large-v3-turbo": {"supported_langs": ["ko", "en"], "type": "whisper"},
-        # "openai/whisper-large-v3": {"supported_langs": ["ko", "en"], "type": "whisper"},
+        "openai/whisper-large-v3-turbo": {"supported_langs": ["ko", "en"], "type": "whisper"},
+        "openai/whisper-large-v3": {"supported_langs": ["ko", "en"], "type": "whisper"},
     }
 
     logging.info("Loading datasets...")
