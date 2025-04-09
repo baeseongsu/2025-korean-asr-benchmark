@@ -387,7 +387,7 @@ def main():
 
     # Define model configurations (here using Qwen as an example).
     model_configs = {
-        "Qwen/Qwen2.5-Omni-7B": {"supported_langs": ["en", "zh", "ru", "fr", "ko"], "type": "qwen"},
+        # "Qwen/Qwen2.5-Omni-7B": {"supported_langs": ["en", "zh", "ru", "fr", "ko"], "type": "qwen"},
         "ghost613/whisper-large-v3-turbo-korean": {"supported_langs": ["ko"], "type": "whisper"},
         "openai/whisper-large-v3-turbo": {"supported_langs": ["ko", "en"], "type": "whisper"},
         "openai/whisper-large-v3": {"supported_langs": ["ko", "en"], "type": "whisper"},
@@ -438,6 +438,15 @@ def main():
             cache,
         )
         all_results.extend(results)
+
+        # Release model and clear GPU memory
+        del asr_pipeline
+        if "qwen_model" in globals():
+            del qwen_model
+        if "qwen_processor" in globals():
+            del qwen_processor
+        torch.cuda.empty_cache()
+
     overall_elapsed = time.time() - overall_start
     logging.info(f"Total evaluation time for new computations: {overall_elapsed:.2f} seconds")
 
